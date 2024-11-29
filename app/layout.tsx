@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
+import { Toaster } from "@/components/ui/sonner"
+
+import { NavLayout } from "@/components/Layouts/NavLayout";
+import Providers from "./providers";
+
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -10,7 +15,8 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: "Blüte - Bloom with us",
-  description: "Blüte is a multibrand skincare and beauty store that offers a wide range of products from various brands.",
+  description:
+    "Blüte is a multibrand skincare and beauty store that offers a wide range of products from various brands.",
 };
 
 export default function RootLayout({
@@ -19,9 +25,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${montserrat.variable}`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${montserrat.variable}`}
+    >
       <body className={`antialiased`}>
-        {children}
+        <Providers>
+          <NavLayout>
+            <main>
+              {children}    
+            </main>
+            <Toaster />
+          </NavLayout>
+        </Providers>
       </body>
     </html>
   );

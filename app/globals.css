@@ -6,9 +6,13 @@
   scroll-behavior: smooth;
 }
 
+body{
+  background-color: #ececec;
+}
+
 @layer base {
   :root {
-    --background: 0 0% 98%;
+    --background: 0 0% 97%;
     --foreground: 0 0% 15%;
     --card: 0 0% 98%;
     --card-foreground: 0 0% 15%;
