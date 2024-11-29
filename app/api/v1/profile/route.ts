@@ -28,12 +28,17 @@ export async function GET(req: Request) {
     })
 
     if (!user) {
+      await prisma.$disconnect()
       return NextResponse.json({ error: 'User not found' }, { status: 404 })
     }
 
-    // Return user data
+    // Disconnect prisma before returning response
+    await prisma.$disconnect()
     return NextResponse.json({ customer: user })
   } catch (error) {
+    // Ensure prisma disconnects even if there's an error
+    await prisma.$disconnect()
+    
     if (error instanceof jwt.JsonWebTokenError) {
       return NextResponse.json({ error: 'Invalid token' }, { status: 401 })
     }

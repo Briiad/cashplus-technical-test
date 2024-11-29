@@ -16,7 +16,7 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: "Blüte - Bloom with us",
   description:
-    "Blüte is a multibrand skincare and beauty store that offers a wide range of products from various brands.",
+    "Blüte is a flower shop that provides a variety of flowers for your special moments. We are here to help you bloom with us.",
 };
 
 export default function RootLayout({

@@ -25,6 +25,8 @@ model Product {
   name        String
   price       Float
   description String
+  quantity    Int
+  imageUrl    String?  @default("https://via.placeholder.com/150")
   cartItems   CartItem[]
   orderItems  OrderItem[]
   createdAt   DateTime  @default(now())

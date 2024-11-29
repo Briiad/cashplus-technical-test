@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { useCurrentUser } from "@/hooks/useCurrentUser"
-import { AuthDialog } from "../CustomDialog/AuthDialog"
-import { useNavLayout } from "./hooks/useNavLayout"
+import Link from "next/link";
+import { useCurrentUser } from "@/hooks/useCurrentUser";
+import { AuthDialog } from "../CustomDialog/AuthDialog";
+import { useNavLayout } from "./hooks/useNavLayout";
 
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,35 +13,40 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
 import { CiLogout } from "react-icons/ci";
-import { DynamicButton } from "../DynamicButton"
-import { ShoppingBasket } from "lucide-react"
+import { DynamicButton } from "../DynamicButton";
+import { ShoppingBasket } from "lucide-react";
 
 interface NavLayoutProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export const NavLayout: React.FC<NavLayoutProps> = ({ children }) => {
-  const { openLogin, openSignup, handleOpenLogin, handleOpenSignup, handleLogout } = useNavLayout()
+  const {
+    openLogin,
+    openSignup,
+    handleOpenLogin,
+    handleOpenSignup,
+    handleLogout,
+  } = useNavLayout();
 
-  const { user } = useCurrentUser()
+  const { user } = useCurrentUser();
 
   return (
     <>
-      <div>
-        <nav  className="w-10/12 mx-auto h-auto p-6 flex items-center justify-between">
+      <div className="relative">
+        <nav className="w-full fixed h-auto p-6 z-50 flex items-center justify-between px-32 left-0 right-0 bg-[#fff] border-b border-black/10 drop-shadow-lg">
           <div className="text-24 font-bold">
-            <Link href={'/'}>Blüte</Link>
+            <Link href={"/"}>Blüte</Link>
           </div>
 
           <div className="flex items-center gap-8">
-            <Link href={'/cart'}>
+            <Link href={"/cart"}>
               <div className="relative">
                 <ShoppingBasket />
                 <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-xs flex items-center justify-center rounded-full">
-                  {/* @TODO: Will be change after integration */}
-                  1 
+                  {/* @TODO: Will be change after integration */}1
                 </div>
               </div>
             </Link>
@@ -50,7 +55,9 @@ export const NavLayout: React.FC<NavLayoutProps> = ({ children }) => {
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <Avatar className="cursor-pointer">
-                      <AvatarFallback className="!bg-primary">{user.name.substring(0, 2).toUpperCase()}</AvatarFallback>
+                      <AvatarFallback className="!bg-primary">
+                        {user.name.substring(0, 2).toUpperCase()}
+                      </AvatarFallback>
                     </Avatar>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent>
@@ -58,20 +65,30 @@ export const NavLayout: React.FC<NavLayoutProps> = ({ children }) => {
                       onClick={handleLogout}
                       className="text-14 font-semibold text-center flex items-center justify-between"
                     >
-                      <div>
-                        Logout
-                      </div>
+                      <div>Logout</div>
                       <CiLogout className="size-4 text-red-500" />
                     </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
             ) : (
-              <DynamicButton title="Join Us!" onClick={() => handleOpenLogin(true)} />
+              <DynamicButton
+                title="Join Us!"
+                onClick={() => handleOpenLogin(true)}
+              />
             )}
           </div>
         </nav>
-        {children}
+
+        <div className="z-0">
+          {children}
+        </div>
+        
+        <footer className="w-full h-24 flex items-center justify-center border-t border-black/30">
+          <p className="text-14 font-semibold">
+            © 2024 Blüte. All rights reserved.
+          </p>
+        </footer>
       </div>
 
       <AuthDialog
@@ -81,8 +98,8 @@ export const NavLayout: React.FC<NavLayoutProps> = ({ children }) => {
         title="Login"
         description="Login to your account"
         changeType={() => {
-          handleOpenLogin(false)
-          handleOpenSignup(true)
+          handleOpenLogin(false);
+          handleOpenSignup(true);
         }}
       />
 
@@ -93,10 +110,10 @@ export const NavLayout: React.FC<NavLayoutProps> = ({ children }) => {
         title="Sign Up"
         description="Create an account"
         changeType={() => {
-          handleOpenSignup(false)
-          handleOpenLogin(true)
+          handleOpenSignup(false);
+          handleOpenLogin(true);
         }}
       />
     </>
-  )
-}
+  );
+};
