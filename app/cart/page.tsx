@@ -19,8 +19,8 @@ export default function Cart() {
   const router = useRouter();
 
   return (
-    <div className="pt-32 pb-12 px-4 md:px-8 grid grid-cols-7 gap-8 bg-[#f0f0f0]">
-      <div className="col-span-5 bg-white p-4 md:p-8 rounded-md border border-black/20 drop-shadow-md">
+    <div className="pt-32 pb-12 px-4 md:px-8 grid grid-cols-1 md:grid-cols-7 gap-8 bg-[#f0f0f0]">
+      <div className="md:col-span-5 bg-white p-4 md:p-8 rounded-md border border-black/20 drop-shadow-md">
         <h1 className="text-16 md:text-24 lg:text-32 font-bold">Your Cart</h1>
         <div className="flex flex-col space-y-4 mt-4 min-h-[calc(100dvh-16rem)]">
           {!user ? (
@@ -77,7 +77,7 @@ export default function Cart() {
         </div>
       </div>
 
-      <div className="col-span-2 bg-white p-4 rounded-md border border-black/20 drop-shadow-md max-h-[200px] flex flex-col justify-between">
+      <div className="md:col-span-2 bg-white p-4 rounded-md border border-black/20 drop-shadow-md max-h-[200px] flex flex-col justify-between">
         <div className="flex flex-col space-y-4 ">
           <h2 className="text-14 font-semibold">Amount of payment:</h2>
           <p className="text-24 font-medium">

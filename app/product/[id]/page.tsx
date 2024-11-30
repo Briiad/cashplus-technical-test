@@ -82,7 +82,7 @@ export default function ProductDetails() {
                 </div>
 
                 <DynamicButton
-                  className="w-10/12"
+                  className="w-full md:w-10/12"
                   title="Add to Cart"
                   onClick={() => {
                     if (!user) {
