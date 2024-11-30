@@ -14,11 +14,13 @@ export async function POST(req: Request) {
     })
 
     if (!user) {
+      await prisma.$disconnect()
       return NextResponse.json({ error: 'User not found' }, { status: 404 })
     }
 
     const validPassword = await bcrypt.compare(password, user.password)
     if (!validPassword) {
+      await prisma.$disconnect()
       return NextResponse.json({ error: 'Invalid password' }, { status: 400 })
     }
 
@@ -27,8 +29,10 @@ export async function POST(req: Request) {
     const response = NextResponse.json({ message: 'Login successful' })
     response.headers.set('x-auth-token', token)
 
+    await prisma.$disconnect()
     return response
   } catch (error) {
+    await prisma.$disconnect()
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }

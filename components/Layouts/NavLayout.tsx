@@ -36,17 +36,17 @@ export const NavLayout: React.FC<NavLayoutProps> = ({ children }) => {
   return (
     <>
       <div className="relative">
-        <nav className="w-full fixed h-auto p-6 z-50 flex items-center justify-between px-32 left-0 right-0 bg-[#fff] border-b border-black/10 drop-shadow-lg">
+        <nav className="w-full fixed h-auto p-6 z-50 flex items-center justify-between px-4 md:px-32 left-0 right-0 bg-[#fff] border-b border-black/10 drop-shadow-lg">
           <div className="text-24 font-bold">
             <Link href={"/"}>Blüte</Link>
           </div>
 
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-4 md:gap-8">
             <Link href={"/cart"}>
               <div className="relative">
-                <ShoppingBasket />
+                <ShoppingBasket className="size-6 md:size-8" />
                 {(data?.length ?? 0) > 0 && (
-                  <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-xs flex items-center justify-center rounded-full">
+                  <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-8 md:text-10 flex items-center justify-center rounded-full">
                     {data?.length ?? undefined}
                   </div>
                 )}
@@ -77,6 +77,7 @@ export const NavLayout: React.FC<NavLayoutProps> = ({ children }) => {
               <DynamicButton
                 title="Join Us"
                 onClick={() => handleOpenLogin(true)}
+                className="!text-12 md:!text-14 text-white"
               />
             )}
           </div>

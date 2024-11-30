@@ -5,7 +5,6 @@ import { authMiddleware } from '@/lib/auth'
 
 const prisma = new PrismaClient()
 
-// To add an item to the cart
 export async function POST(req: Request) {
   try {
     const userId = await authMiddleware(req)
@@ -29,13 +28,14 @@ export async function POST(req: Request) {
       }
     })
 
+    await prisma.$disconnect()
     return NextResponse.json({ message: 'Item added to cart', cartItem }, { status: 201 })
   } catch (error) {
+    await prisma.$disconnect()
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }
 
-// To get the cart items
 export async function GET(req: Request) {
   try {
     const userId = await authMiddleware(req)
@@ -45,13 +45,14 @@ export async function GET(req: Request) {
       include: { items: { include: { product: true } } }
     })
 
+    await prisma.$disconnect()
     return NextResponse.json(cart)
   } catch (error) {
+    await prisma.$disconnect()
     return NextResponse.json({ error: error }, { status: 500 })
   }
 }
 
-// To update the quantity of an item in the cart
 export async function PUT(req: Request) {
   try {
     const userId = await authMiddleware(req)
@@ -62,13 +63,14 @@ export async function PUT(req: Request) {
       data: { quantity }
     })
 
+    await prisma.$disconnect()
     return NextResponse.json({ message: 'Item quantity updated', cartItem })
   } catch (error) {
+    await prisma.$disconnect()
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }
 
-// To remove an item from the cart
 export async function DELETE(req: Request) {
   try {
     const userId = await authMiddleware(req)
@@ -76,8 +78,10 @@ export async function DELETE(req: Request) {
 
     await prisma.cartItem.delete({ where: { id } })
 
+    await prisma.$disconnect()
     return NextResponse.json({ message: 'Item removed from cart' })
   } catch (error) {
+    await prisma.$disconnect()
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }

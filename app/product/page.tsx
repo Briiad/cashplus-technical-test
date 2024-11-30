@@ -12,7 +12,7 @@ export default function Product() {
 
   return (
     <div className="pt-32 pb-12 px-4 md:px-8">
-      <h1 className="text-48 font-bold">Our Beloved Products.</h1>
+      <h1 className="text-24 md:text-36 xl:text-48 font-bold">Our Beloved Products.</h1>
       {data.length === 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-12">
           {[...Array(4)].map((_, index) => (
