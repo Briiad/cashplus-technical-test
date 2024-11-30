@@ -1,7 +1,7 @@
 import axios from "axios";
 import { constants } from "@/constants";
 
-const API = axios.create({ baseURL: process.env.NEXT_API_URL || "http://localhost:3000/api/v1" });
+const API = axios.create({ baseURL: process.env.NEXT_API_URL || "https://bluute.vercel.app/api/v1" });
 
 API.interceptors.request.use((config) => {
   const token = localStorage.getItem(constants.ACCESS_TOKEN_KEY);
