@@ -10,7 +10,7 @@ async function main() {
       description: 'A rose is a woody perennial flowering plant of the genus Rosa, in the family Rosaceae, or the flower it bears.',
       price: 5.99,
       quantity: 100,
-      imageUrl: 'https://images.unsplash.com/photo-1557683316-973673baf926',
+      imageUrl: 'https://images.unsplash.com/photo-1496062031456-07b8f162a322',
     },
     {
       name: 'Tulip',
@@ -31,14 +31,14 @@ async function main() {
       description: 'Elegant flowers with prominent petals and strong fragrance.',
       price: 6.99,
       quantity: 80,
-      imageUrl: 'https://images.unsplash.com/photo-1588701107159-2c41af74b3e3',
+      imageUrl: 'https://images.unsplash.com/photo-1574087275095-719b87a423bf',
     },
     {
       name: 'Orchid',
       description: 'Exotic flowering plants known for their complex and beautiful blooms.',
       price: 15.99,
       quantity: 50,
-      imageUrl: 'https://images.unsplash.com/photo-1567339238466-f513d32d5e03',
+      imageUrl: 'https://images.unsplash.com/photo-1534885320675-b08aa131cc5e',
     },
     {
       name: 'Daisy',
@@ -52,21 +52,21 @@ async function main() {
       description: 'Ruffled flowers available in various colors, popular in bouquets.',
       price: 4.49,
       quantity: 120,
-      imageUrl: 'https://images.unsplash.com/photo-1589994160839-163d48ee1cd3',
+      imageUrl: 'https://images.unsplash.com/photo-1700580896387-7b03adf5c87e',
     },
     {
       name: 'Chrysanthemum',
       description: 'Decorative flowers with layered petals, symbolizing happiness.',
       price: 5.49,
       quantity: 90,
-      imageUrl: 'https://images.unsplash.com/photo-1606248897732-2c5ade7cdc96',
+      imageUrl: 'https://images.unsplash.com/photo-1724073339133-938ada52e511',
     },
     {
       name: 'Iris',
       description: 'Distinctive flowers with unique petal arrangements in various colors.',
       price: 5.99,
       quantity: 70,
-      imageUrl: 'https://images.unsplash.com/photo-1558694440-03ade9215d7b',
+      imageUrl: 'https://images.unsplash.com/photo-1589115091220-4ba1c5c6816f',
     },
     {
       name: 'Peony',
@@ -80,14 +80,14 @@ async function main() {
       description: 'Spring flowers with distinctive trumpet-shaped centers.',
       price: 3.99,
       quantity: 180,
-      imageUrl: 'https://images.unsplash.com/photo-1584714497199-a10730c6d1e8',
+      imageUrl: 'https://images.unsplash.com/photo-1665655416702-1a9acec3655d',
     },
     {
       name: 'Hydrangea',
       description: 'Cluster-flowering shrubs with round flower heads.',
       price: 7.99,
       quantity: 85,
-      imageUrl: 'https://images.unsplash.com/photo-1597826368522-9f4cb5a6ba48',
+      imageUrl: 'https://images.unsplash.com/photo-1501577316686-a5cbf6c1df7e',
     },
     {
       name: 'Dahlia',
@@ -101,7 +101,7 @@ async function main() {
       description: 'Delicate flowers with paper-like petals in vivid colors.',
       price: 5.49,
       quantity: 110,
-      imageUrl: 'https://images.unsplash.com/photo-1584727638096-042c45049ebe',
+      imageUrl: 'https://images.unsplash.com/photo-1708263108178-16981120be00',
     },
     {
       name: 'Ranunculus',
@@ -115,35 +115,35 @@ async function main() {
       description: 'Fragrant flowers with funnel-shaped blooms.',
       price: 4.99,
       quantity: 130,
-      imageUrl: 'https://images.unsplash.com/photo-1596438459212-6d45e8b9d84c',
+      imageUrl: 'https://images.unsplash.com/photo-1711824200251-f8d738d80020',
     },
     {
       name: 'Gerbera',
       description: 'Cheerful daisy-like flowers in bright colors.',
       price: 4.49,
       quantity: 140,
-      imageUrl: 'https://images.unsplash.com/photo-1597848212809-c95f01e5c3e5',
+      imageUrl: 'https://images.unsplash.com/photo-1641808136507-dd91d741b8d6',
     },
     {
       name: 'Delphinium',
       description: 'Tall spikes of blue, purple, or white flowers.',
       price: 6.99,
       quantity: 65,
-      imageUrl: 'https://images.unsplash.com/photo-1597848212498-d4a9b98df9a7',
+      imageUrl: 'https://images.unsplash.com/photo-1699217394471-ac2b774bd070',
     },
     {
       name: 'Snapdragon',
       description: 'Unique flowers with dragon-like faces when squeezed.',
       price: 4.99,
       quantity: 115,
-      imageUrl: 'https://images.unsplash.com/photo-1597848212471-9e35bf89c1bc',
+      imageUrl: 'https://images.unsplash.com/photo-1710831403092-f2631ae0d07e',
     },
     {
       name: 'Lisianthus',
       description: 'Rose-like flowers with delicate, ruffled petals.',
       price: 7.49,
       quantity: 85,
-      imageUrl: 'https://images.unsplash.com/photo-1597848212534-6f99f5c63f85'
+      imageUrl: 'https://images.unsplash.com/photo-1610507121084-0cb0661c72bb'
     }
   ]
 

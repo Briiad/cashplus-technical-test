@@ -35,3 +35,12 @@ export interface GetProductDetailsResponse {
   createdAt: string
   updatedAt: string
 }
+
+export interface PostProductToCartRequest {
+  productId: string
+  quantity: number
+}
+
+export interface PostProductToCartResponse {
+  message: string
+}

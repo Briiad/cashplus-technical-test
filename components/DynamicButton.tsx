@@ -7,6 +7,7 @@ interface DynamicButtonProps {
   title: string;
   className?: string;
   loading?: boolean;
+  disabled?: boolean;
 }
 
 export const DynamicButton: React.FC<DynamicButtonProps> = ({
@@ -14,11 +15,12 @@ export const DynamicButton: React.FC<DynamicButtonProps> = ({
   title,
   className,
   loading,
+  disabled,
 }) => {
   return (
     <Button
       onClick={onClick}
-      disabled={loading}
+      disabled={loading || disabled}
       className={
         cn("bg-primary hover:bg-primary-foreground text-white", 
           className

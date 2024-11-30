@@ -10,13 +10,12 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { CiLogout } from "react-icons/ci";
 import { DynamicButton } from "../DynamicButton";
 import { ShoppingBasket } from "lucide-react";
+import { useCart } from "@/app/cart/hooks/useCart";
 
 interface NavLayoutProps {
   children: React.ReactNode;
@@ -32,6 +31,7 @@ export const NavLayout: React.FC<NavLayoutProps> = ({ children }) => {
   } = useNavLayout();
 
   const { user } = useCurrentUser();
+  const { data } = useCart();
 
   return (
     <>
@@ -45,9 +45,11 @@ export const NavLayout: React.FC<NavLayoutProps> = ({ children }) => {
             <Link href={"/cart"}>
               <div className="relative">
                 <ShoppingBasket />
-                <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-xs flex items-center justify-center rounded-full">
-                  {/* @TODO: Will be change after integration */}1
-                </div>
+                {(data?.length ?? 0) > 0 && (
+                  <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-xs flex items-center justify-center rounded-full">
+                    {data?.length ?? undefined}
+                  </div>
+                )}
               </div>
             </Link>
             {user ? (
@@ -73,17 +75,15 @@ export const NavLayout: React.FC<NavLayoutProps> = ({ children }) => {
               </div>
             ) : (
               <DynamicButton
-                title="Join Us!"
+                title="Join Us"
                 onClick={() => handleOpenLogin(true)}
               />
             )}
           </div>
         </nav>
 
-        <div className="z-0">
-          {children}
-        </div>
-        
+        <div className="z-0">{children}</div>
+
         <footer className="w-full h-24 flex items-center justify-center border-t border-black/30">
           <p className="text-14 font-semibold">
             © 2024 Blüte. All rights reserved.

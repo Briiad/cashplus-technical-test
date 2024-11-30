@@ -22,7 +22,7 @@ export const AlertDialogWrapper: React.FC<AlertDialogWrapperProps> = ({ open, on
     >
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle className="text-32 font-bold">{title}</AlertDialogTitle>
+          <AlertDialogTitle className="text-32 font-bold w-3/4">{title}</AlertDialogTitle>
         </AlertDialogHeader>
         <AlertDialogDescription>{description}</AlertDialogDescription>
         {children}

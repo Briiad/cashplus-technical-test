@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { useGetProducts } from "../api/queries";
-import { GetProductResponse, Products } from "../api/interface";
+import { Products } from "../api/interface";
 
 interface UseProductsProps {}
 
