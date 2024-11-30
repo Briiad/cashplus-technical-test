@@ -5,8 +5,7 @@ const prisma = new PrismaClient()
 
 // Find product details by ID
 export async function GET(
-  request: Request,
-  { params }: { params: { id: string } }
+  request: Request
 ) {
   // Endpoint: /api/v1/products/details?id=1
   try {

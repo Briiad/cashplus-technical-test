@@ -43,7 +43,7 @@ export default function Product() {
         >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-12">
             {data.map((product) => (
-              <ProductCards
+              <ProductCard
                 key={product.id}
                 id={product.id}
                 name={product.name}
@@ -57,13 +57,13 @@ export default function Product() {
   );
 }
 
-interface ProductCardsProps {
+interface ProductCardProps {
   id: string;
   name: string;
   imageUrl: string;
 }
 
-export function ProductCards(props: ProductCardsProps) {
+const ProductCard = (props: ProductCardProps) => {
   const { id, name, imageUrl } = props;
 
   return (
