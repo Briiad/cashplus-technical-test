@@ -6,6 +6,7 @@ import Link from "next/link";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
+import { formatCurrency } from "@/lib/formatCurrency";
 
 export default function Product() {
   const { data, fetchNextPage, hasNextPage } = useProducts({});
@@ -46,6 +47,7 @@ export default function Product() {
               <ProductCard
                 key={product.id}
                 id={product.id}
+                price={product.price}
                 name={product.name}
                 imageUrl={product.imageUrl}
               />
@@ -60,11 +62,12 @@ export default function Product() {
 interface ProductCardProps {
   id: string;
   name: string;
+  price: number;
   imageUrl: string;
 }
 
 const ProductCard = (props: ProductCardProps) => {
-  const { id, name, imageUrl } = props;
+  const { id, name, imageUrl, price } = props;
 
   return (
     <Link href={`/product/${id}`}>
@@ -78,6 +81,10 @@ const ProductCard = (props: ProductCardProps) => {
           {/* Content */}
           <div className="absolute inset-0 flex flex-col justify-center p-4 text-white">
             <h2 className="text-24 font-semibold">{name}</h2>
+          </div>
+
+          <div className="absolute top-0 right-0 bg-primary rounded-bl-md">
+            <p className="text-14 font-medium p-2">{formatCurrency(price)}</p>
           </div>
         </CardContent>
       </Card>
