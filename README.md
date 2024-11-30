@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Blüute - [Web App](https://bluute.vercel.app)
+A simple, e-commerce web app built with Next.js, Tailwind, Prisma, and PostgreSQL.
+
+> Check the deployed web app [here](https://bluute.vercel.app)
+
+## Features
+- [x] User authentication
+- [x] Product listing
+- [x] Product details
+- [x] Shopping cart
+- [ ] Checkout ( WIP )
 
 ## Getting Started
-
-First, run the development server:
-
+1. Clone the repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/Briiad/cashplus-technical-test.git
+```
+2. Install dependencies
+```bash
+yarn
+```
+3. Create a `.env` file in the root directory and add the following environment variables
+```bash
+cp .env.example .env
+```
+You can create [new supabase project](https://supabase.com) and get the required environment variables from the project settings.
+
+For now, we won't use any Xendit API, so you can leave the `XENDIT_SECRET_KEY` empty or with random words.
+```bash
+DATABASE_URL="postgresql://username:password@localhost:6543/database"
+DIRECT_URL="postgresql://username:password@localhost:5432/database"
+JWT_SECRET="your-secret"
+XENDIT_SECRET_KEY="your-xendit-secret-key"
+NEXT_API_URL="http://localhost:3000/api/v1"
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Initialize Prisma and migrate the database
+```bash
+npx prisma init
+```
+```bash
+npx prisma migrate dev --name init
+```
+```bash
+npx prisma db push
+```
+```bash
+npx prisma generate
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+5. Seed the database
+```bash
+npx prisma db seed
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+6. Run the development server
+```bash
+yarn dev
+```
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+7. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+   
+> If you have any questions or need help, feel free to open an issue.
+>
+> If you want to access the deployed version, click [here](https://bluute.vercel.app)
+```
